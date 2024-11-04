@@ -8,3 +8,8 @@
 
 # ERD
 ![image](https://github.com/user-attachments/assets/050e4b0b-becf-4920-8203-e64438c1b6a8)
+
+# 개발일지
+## Trouble Shooting
+### 1. 크롤링 도중 WebElement로 인한 StaleElementReferenceException
+#### 해결 방법 : https://dldnwls009.tistory.com/27
