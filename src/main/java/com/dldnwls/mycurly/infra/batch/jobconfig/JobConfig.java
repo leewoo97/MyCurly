@@ -17,6 +17,7 @@ import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.batch.repeat.RepeatStatus;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
@@ -30,12 +31,16 @@ public class JobConfig {
     private final JobRepository jobRepository;
     private final PlatformTransactionManager transactionManager;
     private final EntityManagerFactory entityManagerFactory;
+    private final SeleniumCrawler seleniumCrawler;
+
+    @Value("${path.productDetails}")
+    private String directoryPath;
 
     @Bean
     public Job seleniumCrawlerJob() {
         JobBuilder jobBuilder = new JobBuilder("seleniumCrawlerJob", jobRepository);
 
-        SimpleJobBuilder job = jobBuilder.start(crawlStep())
+        SimpleJobBuilder job = jobBuilder.start(crawlStep(seleniumCrawler))
                 .listener(new JobExecutionListener() {
                     @Override
                     public void beforeJob(JobExecution jobExecution) {
@@ -54,10 +59,10 @@ public class JobConfig {
     }
 
     @Bean
-    public Step crawlStep() {
+    public Step crawlStep(SeleniumCrawler seleniumCrawler) {
         StepBuilder stepBuilder = new StepBuilder("crawlStep", jobRepository);
         return stepBuilder.tasklet((contribution, chunkContext) -> {
-                    SeleniumCrawler.main(new String[]{}); // SeleniumCrawler 실행
+                    seleniumCrawler.runCrawler(); // SeleniumCrawler 실행
                     return RepeatStatus.FINISHED;
                 }, transactionManager)
                 .listener(new StepExecutionListener(){
@@ -84,7 +89,7 @@ public class JobConfig {
         FlatFileItemReader<Inventory> reader = new FlatFileItemReader<>();
 
         // 파일 시스템 경로를 명확히 지정
-        Resource resource = new FileSystemResource("C:/Users/dldnw/OneDrive/Desktop/semiproject/mycurly/mycurly/src/main/resources/product_details.csv");
+        Resource resource = new FileSystemResource(directoryPath);
         reader.setResource(resource);
         System.out.println("Resource Path: " + resource);
 

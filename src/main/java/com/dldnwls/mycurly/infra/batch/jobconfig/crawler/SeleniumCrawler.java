@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -14,17 +16,19 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class SeleniumCrawler {
-    static String directoryPath = "C:/Users/dldnw/OneDrive/Desktop/semiproject/mycurly/mycurly/src/main/resources/product_details.csv";
-    static String productLinkSelector = ".css-8bebpy.e1c07x488";
-    static String nameSelector = ".css-13lg2xu.ezpe9l11";
-    static String priceSelector = ".css-9pf1ze.e1q8tigr2";
-    static String deliveryMethodSelector = "css-c02hqi.e6qx2kx1";
-    static String gramSelector = "css-c02hqi.e6qx2kx1";
 
+    @Value("${path.productDetails}")
+    private String directoryPath;
 
-    public static void main(String[] args) {
+    private String productLinkSelector = ".css-8bebpy.e1c07x488";
+    private String nameSelector = ".css-13lg2xu.ezpe9l11";
+    private String priceSelector = ".css-9pf1ze.e1q8tigr2";
+    private String deliveryMethodSelector = "css-c02hqi.e6qx2kx1";
+    private String gramSelector = "css-c02hqi.e6qx2kx1";
 
+    public void runCrawler(){
         // 1. WebDriver 인스턴스 생성
         WebDriver driver = new ChromeDriver();
 
@@ -37,7 +41,7 @@ public class SeleniumCrawler {
             WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("gnb_search")));
 
             // 4. 검색어 입력
-            searchBox.sendKeys("연어");
+            searchBox.sendKeys("우럭");
 
             // 5. 검색 버튼 클릭
             WebElement submitButton = driver.findElement(By.id("submit"));
@@ -58,6 +62,7 @@ public class SeleniumCrawler {
             }
 
             // 9. CSV 파일에 저장
+            System.out.println("directoryPath : " + directoryPath);
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(directoryPath))) {
                 writer.write("name,price,deliveryMethod,gram,link");
                 writer.newLine();
