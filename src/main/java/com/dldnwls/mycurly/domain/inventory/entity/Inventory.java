@@ -19,7 +19,7 @@ public class Inventory {
     private String name; //상품명
 
     @Column(name = "price", nullable = false)
-    private String price; //가격
+    private int price; //가격
 
     @Column(name = "deliveryMethod", nullable = false)
     private String deliveryMethod; //배송방식(샛별배송 또는 일반배송)

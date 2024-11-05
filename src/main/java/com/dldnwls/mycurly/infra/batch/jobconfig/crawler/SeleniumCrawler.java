@@ -37,7 +37,7 @@ public class SeleniumCrawler {
             WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("gnb_search")));
 
             // 4. 검색어 입력
-            searchBox.sendKeys("우럭");
+            searchBox.sendKeys("연어");
 
             // 5. 검색 버튼 클릭
             WebElement submitButton = driver.findElement(By.id("submit"));
@@ -68,7 +68,7 @@ public class SeleniumCrawler {
 
                     // 11. 상세 페이지의 특정 정보 추출
                     String name = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(nameSelector))).getText();
-                    String price = driver.findElement(By.cssSelector(priceSelector)).getText().replace(",","");
+                    int price = Integer.valueOf(driver.findElement(By.cssSelector(priceSelector)).getText().replace(",",""));
                     String link = driver.getCurrentUrl();
 
                     List<WebElement> elements = driver.findElements(By.cssSelector(".css-c02hqi.e6qx2kx1"));
