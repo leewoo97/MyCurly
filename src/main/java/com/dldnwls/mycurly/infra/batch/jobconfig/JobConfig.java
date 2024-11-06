@@ -65,12 +65,6 @@ public class JobConfig {
                     seleniumCrawler.runCrawler(); // SeleniumCrawler 실행
                     return RepeatStatus.FINISHED;
                 }, transactionManager)
-                .listener(new StepExecutionListener(){
-                    @Override
-                    public void beforeStep(StepExecution stepExecution) {
-
-                    }
-                })
                 .build();
     }
 
