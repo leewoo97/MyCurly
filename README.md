@@ -38,4 +38,5 @@
 #### 해결 방법 : <a href="https://dldnwls009.tistory.com/28">@StepScope(LateBinding)에 대해서 아시나요?</a>
 
 ### 3. 개발서버와 운영서버의 csv파일 저장경로가 다른데 어떻게 설정해야하지?
-#### 해결 방법 : <a href="https://dldnwls009.tistory.com/29">application-dev.properties와 @Value</a>
+#### 해결 방법 : <a href="https://dldnwls009.tistory.com/29">application-dev.properties와 @Value</a> 
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://dldnwls009.tistory.com/30">properties를 개발서버와 운영서버에서 환경변수로 적용해보자</a>
