@@ -27,7 +27,8 @@
    <a href="https://dldnwls009.tistory.com/24">[SpringBatch]ItemReader 구현체 종류</a>
 
 ## 2024-11-05
-#### 크롤링Step에서 저장된 csv파일을 UpdateInventoryStep의 ItemReader에서 못읽는 오류 해결 
+#### • 크롤링Step에서 저장된 csv파일을 UpdateInventoryStep의 ItemReader에서 못읽는 오류 해결 
+#### • application-dev파일로 운영서버와 개발서버의 csv파일 저장경로를 유동적으로 바꿀수있게 적용
 
 ## Trouble Shooting
 ### 1. 크롤링 도중 WebElement로 인한 StaleElementReferenceException
@@ -35,3 +36,6 @@
 
 ### 2. ItemReader가 csv파일을 못 읽는 상황 발생
 #### 해결 방법 : <a href="https://dldnwls009.tistory.com/28">@StepScope(LateBinding)에 대해서 아시나요?</a>
+
+### 3. 개발서버와 운영서버의 csv파일 저장경로가 다른데 어떻게 설정해야하지?
+#### 해결 방법 : <a href="https://dldnwls009.tistory.com/29">application-dev.properties와 @Value</a>
