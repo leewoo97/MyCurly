@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,7 +31,12 @@ public class SeleniumCrawler {
 
     public void runCrawler(){
         // 1. WebDriver 인스턴스 생성
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");  // 헤드리스 모드
+        options.addArguments("--no-sandbox");  // 권한 문제 방지
+        options.addArguments("--disable-dev-shm-usage");  // 공유 메모리 이슈 방지
+        options.addArguments("--remote-debugging-port=9222");  // 디버깅 포트
+        WebDriver driver = new ChromeDriver(options);
 
         try {
             // 2. 검색 페이지로 이동
