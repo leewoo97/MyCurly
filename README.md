@@ -24,11 +24,18 @@
 #### • Job -> 크롤링Step -> UpdateInventoryStep 순으로 작업 배치</br>
    크롤링 Step : 작업이 끝나면 크롤링한 데이터를 가진 csv파일 생성</br>
    UpdateInventoryStep : csv파일을 분석하여, Inventory엔티티에 저장</br>
-   <a href="https://dldnwls009.tistory.com/24">[SpringBatch]ItemReader 구현체 종류</a>
+   ※<a href="https://dldnwls009.tistory.com/24">[SpringBatch]ItemReader 구현체 종류</a>
 
 ## 2024-11-05
 #### • 크롤링Step에서 저장된 csv파일을 UpdateInventoryStep의 ItemReader에서 못읽는 오류 해결 
 #### • application-dev파일로 운영서버와 개발서버의 csv파일 저장경로를 유동적으로 바꿀수있게 적용
+
+## 2024-11-07
+#### • GCP VM인스턴스 생성
+#### • 인스턴스 환경에서도 크롤링 수행되도록 SeleninumCrawler Headless모드로 변경 -> 서버에서 크롤링 성공
+※<a href="https://dldnwls009.tistory.com/31">인스턴스에서 크롤링을 해보자(Selenium 4.6버전 이상)</a>
+#### • 서버 22번포트 열어서 로컬에서 scp로 application-prod.properties파일 전송 완료
+#### • 서버에서도 크롤링후 DB에 csv파일 분석해서 저장하는 SpringBatch작업 제대로 작동함
 
 ## Trouble Shooting
 ### 1. 크롤링 도중 WebElement로 인한 StaleElementReferenceException
