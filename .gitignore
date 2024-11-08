@@ -39,3 +39,6 @@ out/
 ### Environment-specific configuration ###
 application-dev.properties
 application-prod.properties
+
+### CSV File ###
+product_details.csv

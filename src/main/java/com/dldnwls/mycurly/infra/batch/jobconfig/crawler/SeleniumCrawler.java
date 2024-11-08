@@ -1,5 +1,7 @@
 package com.dldnwls.mycurly.infra.batch.jobconfig.crawler;
 
+import com.dldnwls.mycurly.infra.batch.jobconfig.crawler.chromeoptions.ChromeOptionsProvider;
+import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,8 +19,11 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Component
 public class SeleniumCrawler {
+
+    private final ChromeOptionsProvider chromeOptionsProvider;
 
     @Value("${path.productDetails}")
     private String directoryPath;
@@ -31,12 +36,7 @@ public class SeleniumCrawler {
 
     public void runCrawler(){
         // 1. WebDriver 인스턴스 생성
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");  // 헤드리스 모드
-        options.addArguments("--no-sandbox");  // 권한 문제 방지
-        options.addArguments("--disable-dev-shm-usage");  // 공유 메모리 이슈 방지
-        options.addArguments("--remote-debugging-port=9222");  // 디버깅 포트
-        WebDriver driver = new ChromeDriver(options);
+            WebDriver driver = new ChromeDriver(chromeOptionsProvider.getOptions());
 
         try {
             // 2. 검색 페이지로 이동
