@@ -35,6 +35,7 @@
 #### • 인스턴스 환경에서도 크롤링 수행되도록 SeleninumCrawler Headless모드로 변경 -> 서버에서 크롤링 성공
 ※<a href="https://dldnwls009.tistory.com/31">인스턴스에서 크롤링을 해보자(Selenium 4.6버전 이상)</a>
 #### • 서버 22번포트 열어서 로컬에서 scp로 application-prod.properties파일 전송 완료
+※<a href="https://dldnwls009.tistory.com/32">[Linux] VM인스턴스 쓰기 권한문제</a>
 #### • 서버에서도 크롤링후 DB에 csv파일 분석해서 저장하는 SpringBatch작업 제대로 작동함
 
 ## Trouble Shooting
