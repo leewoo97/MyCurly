@@ -56,11 +56,6 @@ dependencies {
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
 }
 
-//이것때문이라고..?
-//tasks.named('test') {
-//    useJUnitPlatform()
-//}
-
-test {
+tasks.named('test') {
     useJUnitPlatform()
 }
