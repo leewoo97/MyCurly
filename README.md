@@ -15,7 +15,8 @@
 </p>
 
 ## ERD
-![image](https://github.com/user-attachments/assets/050e4b0b-becf-4920-8203-e64438c1b6a8)
+![image](https://github.com/user-attachments/assets/100c866e-fcb8-4fdf-a772-e36238ba873e)
+
 
 # 개발일지
 ## 2024-11-04
