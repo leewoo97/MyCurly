@@ -38,6 +38,12 @@
 ※<a href="https://dldnwls009.tistory.com/32">[Linux] VM인스턴스 쓰기 권한문제</a>
 #### • 서버에서도 크롤링후 DB에 csv파일 분석해서 저장하는 SpringBatch작업 제대로 작동함
 
+## 2024-11-09
+#### • Jenkins 도입 및 빌드테스트
+#### • Jenkins로 빌드테스트할때 발생한 WorkSpace 문제 해결
+#### • Jenkins 로 빌드한 이후 H2-Console이 띄워지지않던 문제 해결
+
+
 ## Trouble Shooting
 ### 1. 크롤링 도중 WebElement로 인한 StaleElementReferenceException
 #### 해결 방법 : <a href="https://dldnwls009.tistory.com/27">WebElement 객체를 아시나요?</a>
@@ -48,3 +54,9 @@
 ### 3. 개발서버와 운영서버의 csv파일 저장경로가 다른데 어떻게 설정해야하지?
 #### 해결 방법 : <a href="https://dldnwls009.tistory.com/29">application-dev.properties와 @Value</a> 
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://dldnwls009.tistory.com/30">properties를 개발서버와 운영서버에서 환경변수로 적용해보자</a>
+
+### 4. Jenkins에서 발생한 java.lang.IllegalArgumentException at PropertyPlaceholderHelper 오류
+#### 해결 방법 : <a href="https://dldnwls009.tistory.com/33">[Infra] Jenkins에서 발생한 java.lang.IllegalArgumentException at PropertyPlaceholderHelper 오류</a> 
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://dldnwls009.tistory.com/35">[Infra] Jenkins가 따로 WorkSpace를 구성하는 이유</a>
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://dldnwls009.tistory.com/34">Build는 통과하고 BuildTest는 실패하는 이유</a>
+
