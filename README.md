@@ -44,6 +44,9 @@
 #### • Jenkins로 빌드테스트할때 발생한 WorkSpace 문제 해결
 #### • Jenkins 로 빌드한 이후 H2-Console이 띄워지지않던 문제 해결
 
+## 2024-11-17
+#### • 개인레시피 CRUD API, 전역 변수 핸들링 클래스 생성
+※<a href="https://dldnwls009.tistory.com/36">@RestControllerAdvice를 사용해서, 전역 예외처리 핸들링를 해보자</a>
 
 ## Trouble Shooting
 ### 1. 크롤링 도중 WebElement로 인한 StaleElementReferenceException
