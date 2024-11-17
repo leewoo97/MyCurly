@@ -18,28 +18,28 @@ public class ProfileController {
 
     private final ProfileService profileService;
 
-    //프로필생성 API(= 회원가입 API)
+    //회원 생성 API(= 회원가입 API)
     @PostMapping
     ResponseEntity<CreateProfileResponse> createProfile(@RequestBody CreateProfileRequest createProfileRequest){
         CreateProfileResponse createProfileResponse = profileService.createProfile(createProfileRequest);
         return new ResponseEntity<>(createProfileResponse,HttpStatus.OK);
     }
 
-    //프로필 조회 API
+    //회원 조회 API
     @GetMapping("/{profileId}")
     ResponseEntity<GetProfileResponse> getProfile(@PathVariable Long profileId){
         GetProfileResponse getProfileResponse = profileService.getProfile(profileId);
         return new ResponseEntity<>(getProfileResponse, HttpStatus.OK);
     }
 
-    //프로필 수정 API
+    //회원 수정 API
     @PutMapping("/{profileId}")
     ResponseEntity<UpdateProfileResponse> updateProfile(@PathVariable Long profileId, @RequestBody UpdateProfileRequest updateProfileRequest){
         UpdateProfileResponse updateProfileResponse = profileService.updateProfile(profileId, updateProfileRequest);
         return new ResponseEntity<>(updateProfileResponse, HttpStatus.OK);
     }
 
-    //프로필 삭제 API
+    //회원 삭제 API
     @DeleteMapping("/{profileId}")
     ResponseEntity<Void> deleteProfile(@PathVariable Long profileId){
         boolean isDeleted = profileService.deleteProfile(profileId);
